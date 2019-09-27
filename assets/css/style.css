@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-.jumbotron{
+.jumbotron, .quiz{
     background: rgba(255, 240, 240, 0.8); 
 }
 

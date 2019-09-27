@@ -51,6 +51,22 @@ var questions = [
             // leave this as blank string
         userAnswer: ""
      },
+     {
+        question: "Who won best costume in the halloween costume contest?",
+        answer: 'Oscar',
+        // if you want more choices just add more "" for choices
+        choices: ['Oscar', "Kelly", "Creed", "Pam"],
+            // leave this as blank string
+        userAnswer: ""
+     },
+     {
+        question: "What is the name of Angela's cat that Dwight mercy killed?",
+        answer: 'Sprinkles',
+        // if you want more choices just add more "" for choices
+        choices: ['Sprinkles', "Garbage", "Bandit", "Fluffy"],
+            // leave this as blank string
+        userAnswer: ""
+     }
 ];
 
 
@@ -119,6 +135,7 @@ $("#quiz-form").on("change", ".form-check-input", function(){
 
     //get value out of radio button you have selected
     var answer = $(this).val();
+    console.log(answer)
 
     //sets answer to questions's useranswer property
     questions[questionIndex].userAnswer = answer;
@@ -133,7 +150,8 @@ var wrongAnswer = 0;
 
 //startbtn to run the time and Game
 $("#startBtn").on("click", function(){
-
+    //removes display none class from jumbotron
+    $("#quiz-tron").removeClass("d-none")
     //once user hits startbtn game form will show
     $("#quiz-form").show();
 
@@ -149,6 +167,11 @@ $("#startBtn").on("click", function(){
         //if timer hits 0 STOP game and stops clock
         if (time === 0){
             stop();
+            // Form to go away
+            // clock stops
+            // number of correct/incorrect get displayed
+            // $("#quiz-tron").addClass("d-none")
+
 
             //checking user answer-using the loop to run thru every question not just one question
             for(var i = 0; i < questions.length; i++){
@@ -170,6 +193,7 @@ $("#startBtn").on("click", function(){
 
     //clock start function and setInterval id to decrement by 1 sec(in miliseconds)
     function start(){
+        time = 60
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
     }
@@ -177,6 +201,7 @@ $("#startBtn").on("click", function(){
     //stops clock when hits 0 and clears the intervalId
     function stop(){
         clearInterval(intervalId);
+        console.log("stop")
     }
 
 
