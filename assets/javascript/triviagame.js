@@ -77,7 +77,6 @@ function renderQuestion(){
 
     //loops thru questions in array
     questions.forEach(function(question, index){
-
         //create div to hold questions
         var $question = $("<div>").addClass("form-group text-center qtext");//how does it know difference between var question and question in the array???
 
@@ -103,7 +102,7 @@ function renderQuestion(){
             radio.attr({
                 type: "radio",
                 value: question.choices[i],
-                name: index, 
+                name: index, //index is a "reserved" word
                 class: "form-check-input"
             })
             .appendTo(choice);
@@ -130,7 +129,7 @@ $("#quiz-form").on("change", ".form-check-input", function(){
     console.log(this);
 
     // GET question index out of the "name" attr so we know what question you answered
-    var questionIndex = $(this).attr("name");
+    var questionIndex = $(this).attr("habibi");
     console.log(questions[questionIndex]);
 
     //get value out of radio button you have selected
