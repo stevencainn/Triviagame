@@ -129,7 +129,7 @@ $("#quiz-form").on("change", ".form-check-input", function(){
     console.log(this);
 
     // GET question index out of the "name" attr so we know what question you answered
-    var questionIndex = $(this).attr("habibi");
+    var questionIndex = $(this).attr("name");
     console.log(questions[questionIndex]);
 
     //get value out of radio button you have selected
